@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/24 15:21:56 by narajaon         ###   ########.fr       */
+/*   Created: 2017/04/11 09:57:32 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:22:37 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 6
-# include "./libft/includes/libft.h"
+#include "./includes/libft.h"
 
-typedef struct	s_line
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int wid;
-	int line;
-}				t_line;
+	unsigned char		*ptr;
+	unsigned char		*ptr2;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	ptr = dst;
+	ptr2 = (unsigned char *)src;
+	if (dst > src)
+	{
+		while (len--)
+			ptr[len] = ptr2[len];
+	}
+	else
+	{
+		while (len--)
+			*ptr++ = *ptr2++;
+	}
+	return (dst);
+}

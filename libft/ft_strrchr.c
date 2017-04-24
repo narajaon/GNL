@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/24 15:21:56 by narajaon         ###   ########.fr       */
+/*   Created: 2017/04/11 17:12:03 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:23:10 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 6
-# include "./libft/includes/libft.h"
+#include "./includes/libft.h"
 
-typedef struct	s_line
+char			*ft_strrchr(const char *s, int c)
 {
-	int wid;
-	int line;
-}				t_line;
+	char	*ptr;
+	int		len;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	ptr = (char *)s;
+	if ((unsigned char)c == '\0')
+		return ((char *)s + ft_strlen(s));
+	if ((len = ft_strlen(s) - 1) <= 0)
+		return (NULL);
+	while (len >= 0)
+	{
+		if ((unsigned char)s[len] == (unsigned char)c)
+			return ((char *)s + len);
+		len--;
+	}
+	return (NULL);
+}

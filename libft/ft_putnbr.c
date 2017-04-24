@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/24 15:21:56 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/08 16:57:17 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:22:44 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 6
-# include "./libft/includes/libft.h"
+#include "./includes/libft.h"
 
-typedef struct	s_line
+void	ft_putnbr(int nb)
 {
-	int wid;
-	int line;
-}				t_line;
+	int temp;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	temp = 0;
+	if (nb == -2147483648)
+	{
+		nb = nb / 10;
+		temp = 8;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
+	}
+	else if (nb <= 9 && nb >= 0)
+		ft_putchar(nb % 10 + '0');
+	if (temp != 0)
+		ft_putchar(temp + '0');
+}

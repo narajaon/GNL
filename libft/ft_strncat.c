@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/24 15:21:56 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/14 16:56:29 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:23:04 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 6
-# include "./libft/includes/libft.h"
+#include "./includes/libft.h"
 
-typedef struct	s_line
+char	*ft_strncat(char *dest, const char *src, size_t nb)
 {
-	int wid;
-	int line;
-}				t_line;
+	int i_dest;
+	int i_src;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	i_dest = 0;
+	i_src = 0;
+	while (dest[i_dest])
+		i_dest++;
+	while (nb > 0 && src[i_src])
+	{
+		dest[i_dest + i_src] = src[i_src];
+		i_src++;
+		nb--;
+	}
+	dest[i_dest + i_src] = '\0';
+	return (dest);
+}

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/24 15:21:56 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/20 16:16:36 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:22:39 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 6
-# include "./libft/includes/libft.h"
+#include "./includes/libft.h"
 
-typedef struct	s_line
+void	ft_print_words_tables(char **tab)
 {
-	int wid;
-	int line;
-}				t_line;
+	int i;
+	int j;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	i = 0;
+	j = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			ft_putchar(tab[i][j]);
+			j++;
+		}
+		if (!(tab[i]))
+			break ;
+		else
+			ft_putchar('\n');
+		i++;
+	}
+}
