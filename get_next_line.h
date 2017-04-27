@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/26 13:28:35 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/27 19:11:20 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 10
 # include "./libft/includes/libft.h"
+# define  CURRENT line_s->current
+# define FULL line_s->full
+# define RET line_s->ret
 
 typedef struct	s_line
 {
-	char *current;
-	char *remain;
-	char *full;
-	char *next;
+	char	*current;
+	char	*full;
+	int		ret;
 }				t_line;
 
 int				get_next_line(const int fd, char **line);
