@@ -15,20 +15,21 @@
 int		main(int ac, char **av)
 {
 	int fd;
-	int i;
+	int ret;
 	char *buff;
 	char *buff2;
 
-	i = 0;
+	ret = 0;
 	fd = open(av[1], O_RDONLY);
 	buff = ft_strnew(BUFF_SIZE);
 	buff2 = ft_strnew(BUFF_SIZE);
-	read(fd, buff, BUFF_SIZE);
-	while (read(fd, buff2, BUFF_SIZE))
+	while ((ret = read(fd, buff2, BUFF_SIZE)))
 	{
+		printf("%d\n", ret);
 		buff = ft_strjoin(buff, buff2);
-		i++;
+		ft_memdel(&buff2);
 	}
-	printf("%s\n", buff);
+	printf("%s\n\n", buff);
+	printf("%s", buff2);
 	return (0);
 }
