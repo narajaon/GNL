@@ -6,7 +6,7 @@
 #    By: narajaon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/11 18:59:25 by narajaon          #+#    #+#              #
-#    Updated: 2017/04/22 12:12:02 by narajaon         ###   ########.fr        #
+#    Updated: 2017/04/24 12:31:53 by narajaon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 COPTION = -c -I
-srcdir = ./srcs/
+srcdir =
 includedir = ./includes/
-libdir = ./includes/
+libdir =
 
 
 all: $(NAME)

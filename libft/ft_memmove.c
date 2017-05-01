@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/27 19:11:20 by narajaon         ###   ########.fr       */
+/*   Created: 2017/04/11 09:57:32 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/26 18:34:25 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-# define BUFF_SIZE 5
-# include "./libft/includes/libft.h"
-# define  CURRENT line_s->current
-# define RET line_s->ret
-# define FULL line_s->full
-# define OUT line_s->out
-# define TMP line_s->tmp
+#include "./includes/libft.h"
 
-typedef struct	s_line
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*current;
-	char	*full;
-	char	**tmp;
-	int		ret;
-	int		out;
-}				t_line;
+	unsigned char		*ptr;
+	unsigned char		*ptr2;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	ptr = dst;
+	ptr2 = (unsigned char *)src;
+	if (dst > src)
+	{
+		while (len--)
+			ptr[len] = ptr2[len];
+	}
+	else
+	{
+		while (len--)
+			*ptr++ = *ptr2++;
+	}
+	return (dst);
+}

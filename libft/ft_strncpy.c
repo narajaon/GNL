@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/27 19:11:20 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/23 09:18:17 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:23:06 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-# define BUFF_SIZE 5
-# include "./libft/includes/libft.h"
-# define  CURRENT line_s->current
-# define RET line_s->ret
-# define FULL line_s->full
-# define OUT line_s->out
-# define TMP line_s->tmp
+#include "./includes/libft.h"
 
-typedef struct	s_line
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	char	*current;
-	char	*full;
-	char	**tmp;
-	int		ret;
-	int		out;
-}				t_line;
+	size_t i;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}

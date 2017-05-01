@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/27 19:11:20 by narajaon         ###   ########.fr       */
+/*   Created: 2017/04/12 17:37:21 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:23:13 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-# define BUFF_SIZE 5
-# include "./libft/includes/libft.h"
-# define  CURRENT line_s->current
-# define RET line_s->ret
-# define FULL line_s->full
-# define OUT line_s->out
-# define TMP line_s->tmp
+#include "./includes/libft.h"
 
-typedef struct	s_line
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*current;
-	char	*full;
-	char	**tmp;
-	int		ret;
-	int		out;
-}				t_line;
+	char	*str;
+	char	*ptr;
+	int		i;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	i = 0;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	ptr = (char *)s;
+	while (len)
+	{
+		str[i++] = ptr[start++];
+		len--;
+	}
+	return (str);
+}

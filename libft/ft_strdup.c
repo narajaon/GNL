@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/21 09:20:17 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/27 19:11:20 by narajaon         ###   ########.fr       */
+/*   Created: 2017/03/16 13:20:37 by narajaon          #+#    #+#             */
+/*   Updated: 2017/04/24 12:22:56 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-# define BUFF_SIZE 5
-# include "./libft/includes/libft.h"
-# define  CURRENT line_s->current
-# define RET line_s->ret
-# define FULL line_s->full
-# define OUT line_s->out
-# define TMP line_s->tmp
+#include "./includes/libft.h"
 
-typedef struct	s_line
+char			*ft_strdup(const char *src)
 {
-	char	*current;
-	char	*full;
-	char	**tmp;
-	int		ret;
-	int		out;
-}				t_line;
+	char	*dup;
+	int		i;
 
-int				get_next_line(const int fd, char **line);
-#endif
+	i = 0;
+	if (!(dup = (char *)malloc(sizeof(char) * (ft_strlen((char *)src) + 1))))
+		return (NULL);
+	while (src[i])
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
