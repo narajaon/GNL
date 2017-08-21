@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 18:21:28 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/25 14:54:44 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/05/02 19:40:18 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,4 @@ int				ft_isupper(int c);
 int				ft_isspace(int c);
 int				ft_iseven(int nb);
 void			ft_print_words_tables(char **tab);
-char	*ft_strtrimc(char const *s, char c);
 #endif
